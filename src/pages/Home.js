@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TouchableNativeFeedback} from 'react-native';
+import ActionButton from 'react-native-action-button';
 import Card from '../components/Card';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -8,7 +9,7 @@ export default class Home extends Component {
   render() {
     
     return( 
-      <View >
+      <View style={styles.container}>
 
         <Text style={styles.hello}>Hello, Abner.</Text>
 
@@ -57,12 +58,30 @@ export default class Home extends Component {
 
         </Card>
 
+        <ActionButton
+          buttonColor="#9d00dE"
+          onPress={() => this.props.navigation.navigate('NewDebt')}
+        />
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    // Flex
+    flex:1,
+
+    // Alignment
+
+    // Layout
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20,
+    paddingTop: 0,
+    backgroundColor: '#F9F9F9'
+  },
   actionButtonIcon: {
     fontSize: 20,
     height: 22,
