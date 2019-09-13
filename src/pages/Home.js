@@ -6,6 +6,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Home extends Component {
   
+  static navigationOptions = {
+    headerTransparent: true,
+  };
+
   render() {
     
     return( 
@@ -44,7 +48,7 @@ export default class Home extends Component {
               </View>
             </TouchableNativeFeedback>
 
-            <TouchableNativeFeedback onPress={()=>{}} >
+            <TouchableNativeFeedback onPress={ () => this.props.navigation.navigate('DebtList') } >
               <View style={styles.button}>
                 <View style={styles.buttonLabel}>
                   <Icon name="dollar" style={styles.buttonLabelIcon} />

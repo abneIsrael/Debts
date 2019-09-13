@@ -2,12 +2,14 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from './pages/Home';
 import NewDebt from './pages/NewDebt';
+import DebtList from './pages/DebtList';
 
 const Routes = createAppContainer(
     createStackNavigator(
         {
             Home: Home,
             NewDebt: NewDebt,
+            DebtList: DebtList,
         },
         {
             initialRouteName: 'Home'
