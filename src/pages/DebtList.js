@@ -15,6 +15,10 @@ export default class DebtList extends Component {
       ),
   };
 
+  editDebt = () => {
+    return this.props.navigation.navigate('EditDebt');
+  }
+
 
   render() {
 
@@ -57,7 +61,7 @@ export default class DebtList extends Component {
           sections={ DATA } 
           keyExtractor={ (item, index) => index }
           renderSectionHeader={ ( {section} ) => <Text style={styles.sectionList}>{ section.title }</Text> } 
-          renderItem={ ( { item } ) => <ItemList debt = { item }/> } 
+          renderItem={ ( { item } ) => <ItemList debt = { item } actionOnTouch={ () => this.editDebt() } /> } 
         />
 
       </View>
@@ -68,7 +72,7 @@ export default class DebtList extends Component {
 const ItemList = props => {
   const { id, description, value, category, createdAt } = props.debt;
   return (
-    <TouchableOpacity onPress={ () => {} }> 
+    <TouchableOpacity onPress={ () => props.actionOnTouch() }> 
       <View style={styles.itemList}>
         <Text style={styles.listItemValue}>R$ {value}</Text>
         <Text>{description}</Text>

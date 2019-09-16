@@ -2,6 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from './pages/Home';
 import NewDebt from './pages/NewDebt';
+import EditDebt from './pages/EditDebt';
 import DebtList from './pages/DebtList';
 
 const Routes = createAppContainer(
@@ -9,6 +10,7 @@ const Routes = createAppContainer(
         {
             Home: Home,
             NewDebt: NewDebt,
+            EditDebt: EditDebt,
             DebtList: DebtList,
         },
         {

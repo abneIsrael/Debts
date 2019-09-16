@@ -6,7 +6,7 @@ import { Dropdown } from 'react-native-material-dropdown';
 export default class Home extends Component {
   
   static navigationOptions = {
-    headerTitle: "New Debit",
+    headerTitle: "Edit Debit",
     headerTransparent: true,
     headerRight: (
       //Btn Salve New Debit
@@ -29,7 +29,7 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-          <Text style={styles.text}>Whrite the form to add a new debt.</Text>
+          <Text style={styles.text}>Change your debit information.</Text>
           <TextField
             label='Description'
           />
