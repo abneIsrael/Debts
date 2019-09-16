@@ -26,10 +26,26 @@ export default class DebtList extends Component {
           { id:1, description: "Refri Coca cola no araujo", value: 5 ,category: "Food", createdAt: '11/09/2019' },
         ],
       },
+
       {
         title: 'Personal',
         data: [
           { id:2, description: "Bola", value: 10, category: "Personal", createdAt: '12/09/2019' },
+        ],
+      },
+
+      {
+        title: 'Travel',
+        data: [
+          { id:3, description: "Passagem para Paris", value: 5000, category: "Travel", createdAt: '13/09/2019' },
+          { id:4, description: "Passagem para Guaramiranca-Ce", value: 100, category: "Travel", createdAt: '15/09/2019' },
+        ],
+      },
+
+      {
+        title: 'Life',
+        data: [
+          { id:5, description: "Remedio Benegripe na farmacia", value: 5, category: "Life", createdAt: '15/09/2019' },
         ],
       },
     ];
@@ -40,7 +56,7 @@ export default class DebtList extends Component {
         <SectionList style={styles.list}
           sections={ DATA } 
           keyExtractor={ (item, index) => index }
-          renderSectionHeader={ ( {section} ) => <Text style={styles.listSectionTitle}>{ section.title }</Text> } 
+          renderSectionHeader={ ( {section} ) => <Text style={styles.sectionList}>{ section.title }</Text> } 
           renderItem={ ( { item } ) => <ItemList debt = { item }/> } 
         />
 
@@ -52,12 +68,13 @@ export default class DebtList extends Component {
 const ItemList = props => {
   const { id, description, value, category, createdAt } = props.debt;
   return (
-    <Card>
-      <Text>R$ {value}</Text>
-      <Text>{description}</Text>
-      <Text>{category}</Text>
-      <Text>{createdAt}</Text>
-    </Card>
+    <TouchableOpacity onPress={ () => {} }> 
+      <View style={styles.itemList}>
+        <Text style={styles.listItemValue}>R$ {value}</Text>
+        <Text>{description}</Text>
+        <Text>{category} - {createdAt}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
@@ -77,10 +94,26 @@ const styles = StyleSheet.create({
   },
   list: {
    // Layout
-   marginTop: 80
+   marginTop: 60
   },
-  listSectionTitle: {
-   fontWeight: "bold",
-   fontSize:20
-  }
+  sectionList: {
+    //Alignment
+    alignSelf: "center",
+
+    //Layout
+    marginTop: 20,
+    fontWeight: "bold",
+    fontSize:20
+  },
+  itemList: {
+    paddingTop:10,
+    paddingBottom: 10,
+    borderStyle: "solid",
+    borderBottomWidth: 1,
+    borderBottomColor: "#D2D2D2",
+  },
+  listItemValue: {
+    fontWeight: "bold",
+    fontSize: 18
+   }
 });
